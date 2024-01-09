@@ -12,7 +12,7 @@ public class OMDBMovieSearch {
 
     public static void main(String[] args) {
         String apiKey = "26f8a727";
-        String searchQuery = "fantastic";
+        String searchQuery = "gymkata";
 
         try {
             String apiUrl = "http://www.omdbapi.com/?apikey=" + apiKey + "&s=" + searchQuery;
@@ -40,7 +40,8 @@ public class OMDBMovieSearch {
 
                 for (JsonNode movie : movies) {
                     String title = movie.get("Title").asText();
-                    System.out.println("Title: " + title);
+                    String year = movie.get("Year").asText();
+                    System.out.println("Title: " + title + "," + year);
                 }
             } else {
                 System.out.println("No movies found for the given search query.");
